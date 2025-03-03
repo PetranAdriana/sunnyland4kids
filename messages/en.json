@@ -13,17 +13,42 @@
   },
   "hero": {
     "title": "Before & Afterschool",
-    "subtitle": "Indoor and outdoor birthdays",
+    "subtitle": "Indoor and Outdoor Birthdays",
     "description": "A good place for children, an oasis of knowledge and creativity, a space where children's voices are heard.",
-    "button": "Contact us"
+    "button": "Contact Us"
   },
   "about": {
     "title": "About Sunny Land Kids",
+    "subtitle": "A Special Place for Little Ones",
     "description1": "Sunny Land Kids is an after-school playground and care center where creativity and knowledge come to life. We provide a safe and stimulating environment for children, combining education with fun.",
-    "description2": "Our mission is to create an oasis of knowledge and creativity, a space where children's voices are heard and they are encouraged to develop their talents."
+    "description2": "Our mission is to create an oasis of knowledge and creativity, a space where children's voices are heard and they are encouraged to develop their talents.",
+    "founderName": "Monica-Emilia Toma",
+    "founderTitle": "Founder & Director",
+    "valuesTitle": "Our Values",
+    "values": {
+      "creativity": {
+        "title": "Creativity",
+        "description": "We encourage free expression and creative thinking through play and artistic activities."
+      },
+      "safety": {
+        "title": "Safety",
+        "description": "We provide a safe and secure environment where children can thrive without worries."
+      },
+      "learning": {
+        "title": "Learning",
+        "description": "We promote learning through discovery, tailoring methods to each child's needs."
+      },
+      "joy": {
+        "title": "Joy",
+        "description": "We believe joy and fun are essential for harmonious development."
+      }
+    }
   },
   "services": {
     "title": "Our Services",
+    "subtitle": "Discover our services dedicated to your child's development and well-being",
+    "learnMore": "Learn More",
+    "contactButton": "Contact Us for Details",
     "items": {
       "afterschool": {
         "title": "Before & Afterschool",
@@ -45,33 +70,58 @@
   },
   "activities": {
     "title": "Recreational Workshops",
+    "subtitle": "Explore the world through fun and educational activities tailored to your child's age",
+    "readMore": "Read More",
+    "readLess": "Read Less",
+    "benefits": "Benefits",
+    "viewAllButton": "View All Activities",
     "items": {
       "painting": {
         "title": "Painting",
-        "description": "Exploring colors and imagination."
+        "description": "We explore colors and imagination through various painting techniques, encouraging creativity and free expression. Children will experiment with watercolors, tempera, and other artistic materials.",
+        "benefit1": "Develops fine motor skills",
+        "benefit2": "Stimulates creativity and imagination",
+        "benefit3": "Enhances self-expression"
       },
       "reading": {
         "title": "Reading",
-        "description": "Journeys into the world of books."
+        "description": "Journeys into the world of books with captivating stories and interactive reading activities. Together, we discover the magic of words and foster a love for reading.",
+        "benefit1": "Enriches vocabulary",
+        "benefit2": "Improves concentration skills",
+        "benefit3": "Boosts imagination and critical thinking"
       },
       "theater": {
         "title": "Theater",
-        "description": "Developing expressiveness through play."
+        "description": "We develop expressiveness through role-playing, improvisation, and short skits. Children will find their voice, learn to collaborate, and express themselves confidently.",
+        "benefit1": "Boosts self-confidence",
+        "benefit2": "Enhances communication skills",
+        "benefit3": "Encourages teamwork"
       },
       "cinema": {
         "title": "Cinema",
-        "description": "Watching and discussing educational films."
+        "description": "We watch and discuss age-appropriate educational films, followed by creative activities inspired by the stories. A fun way to learn and spark conversation.",
+        "benefit1": "Develops critical thinking",
+        "benefit2": "Encourages discussion and debate",
+        "benefit3": "Provides positive role models and life lessons"
       }
     }
   },
   "gallery": {
-    "title": "Our Gallery"
+    "title": "Our Gallery",
+    "subtitle": "Take a look at special moments from Sunny Land Kids",
+    "photosTab": "Photos",
+    "videosTab": "Videos",
+    "viewLarger": "View Larger",
+    "playVideo": "Play Video",
+    "allPhotos": "All Photos",
+    "allVideos": "All Videos"
   },
   "contact": {
     "title": "Contact Us",
+    "subtitle": "We're here to answer your questions. Contact us and we’ll get back to you as soon as possible.",
     "info": {
       "title": "Contact Information",
-      "address": "Alexandru Ioan Cuza no. 1, Pipera, Romania, 077190",
+      "address": "Alexandru Ioan Cuza No. 1, Pipera, Romania, 077190",
       "phone": "0723 506 199",
       "email": "Sunnylandkids24@gmail.com",
       "areas": "Areas we serve: Bucharest, Voluntari"
@@ -86,7 +136,15 @@
       "name": "Name",
       "email": "Email",
       "message": "Message",
-      "submit": "Send"
+      "submit": "Send",
+      "sending": "Sending...",
+      "successTitle": "Message Sent Successfully!",
+      "successMessage": "Thank you for your message. We’ll get back to you soon."
+    },
+    "schedule": {
+      "title": "Operating Hours",
+      "weekdays": "Monday - Friday",
+      "weekend": "Saturday"
     }
   },
   "footer": {
