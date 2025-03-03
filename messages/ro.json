@@ -1,0 +1,95 @@
+{
+  "app": {
+    "title": "Sunny Land Kids"
+  },
+  "navbar": {
+    "home": "Acasă",
+    "about": "Despre",
+    "services": "Servicii",
+    "activities": "Activități",
+    "gallery": "Galerie",
+    "contact": "Contact",
+    "menu": "Meniu"
+  },
+  "hero": {
+    "title": "Before & Afterschool",
+    "subtitle": "Aniversări indoor și outdoor",
+    "description": "Un loc de bine pentru copii, o oază de cunoaștere și creativitate, un spațiu în care copiii au vocea auzită.",
+    "button": "Contactează-ne"
+  },
+  "about": {
+    "title": "Despre Sunny Land Kids",
+    "description1": "Sunny Land Kids este un loc de joacă și îngrijire after school, unde creativitatea și cunoașterea prind viață. Oferim un mediu sigur și stimulant pentru copii, combinând educația cu distracția.",
+    "description2": "Misiunea noastră este să creăm o oază de cunoaștere și creativitate, un spațiu în care copiii au vocea auzită și sunt încurajați să își dezvolte talentele."
+  },
+  "services": {
+    "title": "Serviciile Noastre",
+    "items": {
+      "afterschool": {
+        "title": "Before & Afterschool",
+        "description": "Îngrijire și activități educative înainte și după școală."
+      },
+      "workshops": {
+        "title": "Ateliere Recreative",
+        "description": "Pictură, lectură, teatru, cinema - pentru dezvoltarea creativă."
+      },
+      "playground": {
+        "title": "Playground",
+        "description": "Un spațiu sigur și distractiv pentru joacă."
+      },
+      "arts": {
+        "title": "Arts & Entertainment",
+        "description": "Evenimente care încurajează expresia artistică."
+      }
+    }
+  },
+  "activities": {
+    "title": "Ateliere Recreative",
+    "items": {
+      "painting": {
+        "title": "Pictură",
+        "description": "Explorăm culorile și imaginația."
+      },
+      "reading": {
+        "title": "Lectură",
+        "description": "Călătorii în lumea cărților."
+      },
+      "theater": {
+        "title": "Teatru",
+        "description": "Dezvoltăm expresivitatea prin joc."
+      },
+      "cinema": {
+        "title": "Cinema",
+        "description": "Vizionăm și discutăm filme educative."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Galeria Noastră"
+  },
+  "contact": {
+    "title": "Contactează-ne",
+    "info": {
+      "title": "Informații de Contact",
+      "address": "Alexandru Ioan Cuza nr. 1, Pipera, România, 077190",
+      "phone": "0723 506 199",
+      "email": "Sunnylandkids24@gmail.com",
+      "areas": "Servim zonele: București, Voluntari"
+    },
+    "social": {
+      "title": "Urmărește-ne",
+      "tiktok": "TikTok",
+      "instagram": "Instagram"
+    },
+    "form": {
+      "title": "Trimite-ne un Mesaj",
+      "name": "Nume",
+      "email": "Email",
+      "message": "Mesaj",
+      "submit": "Trimite"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 SunnyLand4Kids. Toate drepturile rezervate."
+  }
+}

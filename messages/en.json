@@ -1,0 +1,95 @@
+{
+  "app": {
+    "title": "Sunny Land Kids"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "activities": "Activities",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Before & Afterschool",
+    "subtitle": "Indoor and outdoor birthdays",
+    "description": "A good place for children, an oasis of knowledge and creativity, a space where children's voices are heard.",
+    "button": "Contact us"
+  },
+  "about": {
+    "title": "About Sunny Land Kids",
+    "description1": "Sunny Land Kids is an after-school playground and care center where creativity and knowledge come to life. We provide a safe and stimulating environment for children, combining education with fun.",
+    "description2": "Our mission is to create an oasis of knowledge and creativity, a space where children's voices are heard and they are encouraged to develop their talents."
+  },
+  "services": {
+    "title": "Our Services",
+    "items": {
+      "afterschool": {
+        "title": "Before & Afterschool",
+        "description": "Care and educational activities before and after school."
+      },
+      "workshops": {
+        "title": "Recreational Workshops",
+        "description": "Painting, reading, theater, cinema - for creative development."
+      },
+      "playground": {
+        "title": "Playground",
+        "description": "A safe and fun space for play."
+      },
+      "arts": {
+        "title": "Arts & Entertainment",
+        "description": "Events that encourage artistic expression."
+      }
+    }
+  },
+  "activities": {
+    "title": "Recreational Workshops",
+    "items": {
+      "painting": {
+        "title": "Painting",
+        "description": "Exploring colors and imagination."
+      },
+      "reading": {
+        "title": "Reading",
+        "description": "Journeys into the world of books."
+      },
+      "theater": {
+        "title": "Theater",
+        "description": "Developing expressiveness through play."
+      },
+      "cinema": {
+        "title": "Cinema",
+        "description": "Watching and discussing educational films."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Our Gallery"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "info": {
+      "title": "Contact Information",
+      "address": "Alexandru Ioan Cuza no. 1, Pipera, Romania, 077190",
+      "phone": "0723 506 199",
+      "email": "Sunnylandkids24@gmail.com",
+      "areas": "Areas we serve: Bucharest, Voluntari"
+    },
+    "social": {
+      "title": "Follow Us",
+      "tiktok": "TikTok",
+      "instagram": "Instagram"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 SunnyLand4Kids. All rights reserved."
+  }
+}
