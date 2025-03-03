@@ -45,9 +45,15 @@ export default function Gallery() {
   const [activeTab, setActiveTab] = useState("photos");
   const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
 
-  // Effect for photo carousel
+  useEffect(() => {
+    videoRefs.current = videoRefs.current.slice(0, galleryVideos.length);
+    while (videoRefs.current.length < galleryVideos.length) {
+      videoRefs.current.push(null);
+    }
+  }, []);
+
   useEffect(() => {
     if (!photoApi) return;
     setPhotoCount(photoApi.scrollSnapList().length);
@@ -253,18 +259,24 @@ export default function Gallery() {
                       <Card className="overflow-hidden rounded-xl border-none shadow-lg group">
                         <div className="relative aspect-video overflow-hidden">
                           <video
-                            ref={(el) => (videoRefs.current[index] = el)}
+                            ref={(el) => {
+                              videoRefs.current[index] = el;
+                            }}
                             src={src}
                             muted
                             loop
                             playsInline
                             onClick={() => openLightbox(src)}
-                            onMouseEnter={() =>
-                              videoRefs.current[index]?.play()
-                            }
-                            onMouseLeave={() =>
-                              videoRefs.current[index]?.pause()
-                            }
+                            onMouseEnter={() => {
+                              if (videoRefs.current[index]) {
+                                videoRefs.current[index]?.play();
+                              }
+                            }}
+                            onMouseLeave={() => {
+                              if (videoRefs.current[index]) {
+                                videoRefs.current[index]?.pause();
+                              }
+                            }}
                             className="w-full h-full object-cover cursor-pointer"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

@@ -2,12 +2,21 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 // Define a type for the valid service IDs
 type ServiceId = "afterschool" | "workshops" | "playground" | "arts";
 
+// Define a type for the service data objects
+interface ServiceData {
+  id: ServiceId;
+  color: string;
+  gradient: string;
+  iconBg: string;
+}
+
 const ServiceIcon = ({ id }: { id: ServiceId | string }) => {
-  const icons: Record<ServiceId, JSX.Element> = {
+  const icons: Record<ServiceId, React.ReactElement> = {
     afterschool: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +93,7 @@ export default function Services() {
   const t = useTranslations();
   const [hoveredService, setHoveredService] = useState<ServiceId | null>(null);
 
-  const servicesData = [
+  const servicesData: ServiceData[] = [
     {
       id: "afterschool",
       color: "primary",
