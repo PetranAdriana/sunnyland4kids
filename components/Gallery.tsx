@@ -45,7 +45,7 @@ export default function Gallery() {
             setApi={setApi}
             className="w-full"
             opts={{ loop: true, align: "center" }}
-            plugins={[Autoplay({ delay: 2000 })]}
+            plugins={[Autoplay({ delay: 3000 })]}
           >
             <CarouselContent>
               {galleryImages.map((src, index) => (
