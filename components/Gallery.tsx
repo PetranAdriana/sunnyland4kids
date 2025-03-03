@@ -1,5 +1,4 @@
 "use client";
-
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -29,48 +28,30 @@ export default function Gallery() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
+    api.on("select", () => setCurrent(api.selectedScrollSnap() + 1));
   }, [api]);
 
   return (
     <section id="gallery" className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-6 gradient-heading">
+        <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           {t("gallery.title")}
         </h2>
-
-        <p className="text-center text-neutral-600 mb-8 max-w-2xl mx-auto">
-          {/* Add any gallery description or subtitle here */}
-        </p>
-
         <div className="max-w-5xl mx-auto">
           <Carousel
             setApi={setApi}
             className="w-full"
-            opts={{
-              loop: true,
-              align: "center",
-            }}
-            plugins={[
-              Autoplay({
-                delay: 2000,
-              }),
-            ]}
+            opts={{ loop: true, align: "center" }}
+            plugins={[Autoplay({ delay: 2000 })]}
           >
             <CarouselContent>
               {galleryImages.map((src, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <Card className="overflow-hidden rounded-xl border-0 shadow-lg">
+                    <Card className="overflow-hidden rounded-xl border-none shadow-lg">
                       <div className="relative aspect-square overflow-hidden">
                         <Image
                           src={src}
@@ -78,17 +59,16 @@ export default function Gallery() {
                           fill
                           className="object-cover transition-all duration-500 hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary-950/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                       </div>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 bg-white/80 hover:bg-white text-primary hover:text-primary-600 border-none" />
-            <CarouselNext className="right-2 bg-white/80 hover:bg-white text-primary hover:text-primary-600 border-none" />
+            <CarouselPrevious className="left-2 bg-white/80 hover:bg-primary-50 text-primary hover:text-primary-600" />
+            <CarouselNext className="right-2 bg-white/80 hover:bg-primary-50 text-primary hover:text-primary-600" />
           </Carousel>
-
           <div className="flex justify-center items-center mt-4 text-sm text-neutral-500">
             <span>
               {current} / {count}

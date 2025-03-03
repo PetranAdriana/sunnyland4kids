@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export default function Footer() {
   const t = useTranslations();
-
   return (
     <footer className="bg-neutral-800 text-white py-12">
       <div className="container mx-auto px-4 text-center">
@@ -22,16 +21,14 @@ export default function Footer() {
           <a
             href="https://www.instagram.com/sunny_land_kids"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-300 hover:text-primary transition-colors duration-300"
+            className="text-neutral-300 hover:text-primary"
           >
             <Instagram className="w-6 h-6" />
           </a>
           <a
             href="https://www.tiktok.com/@sunny_land_kids"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-300 hover:text-primary transition-colors duration-300"
+            className="text-neutral-300 hover:text-primary"
           >
             <Globe className="w-6 h-6" />
           </a>

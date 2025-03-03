@@ -1,10 +1,84 @@
 @import "tailwindcss";
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  .text-pretty {
-    text-wrap: pretty;
-  }
+@theme {
+  --color-primary: #8a4fff;
+  --color-primary-50: #f5f0ff;
+  --color-primary-100: #eae0ff;
+  --color-primary-200: #d6c2ff;
+  --color-primary-300: #bea1ff;
+  --color-primary-400: #a377ff;
+  --color-primary-500: #8a4fff;
+  --color-primary-600: #7134ff;
+  --color-primary-700: #5b1bff;
+  --color-primary-800: #4a00f9;
+  --color-primary-900: #3d00cc;
+  --color-primary-950: #2b0091;
+
+  --color-secondary: #36d399;
+  --color-secondary-50: #edfcf6;
+  --color-secondary-100: #d9f9eb;
+  --color-secondary-200: #b3f2d7;
+  --color-secondary-300: #80e9bc;
+  --color-secondary-400: #56dfa6;
+  --color-secondary-500: #36d399;
+  --color-secondary-600: #25b17f;
+  --color-secondary-700: #1e8d65;
+  --color-secondary-800: #1b7253;
+  --color-secondary-900: #185e45;
+  --color-secondary-950: #0f3d2d;
+
+  --color-accent: #ffd53e;
+  --color-accent-50: #fffce8;
+  --color-accent-100: #fff9d1;
+  --color-accent-200: #fff2a3;
+  --color-accent-300: #ffea75;
+  --color-accent-400: #ffdf56;
+  --color-accent-500: #ffd53e;
+  --color-accent-600: #ffb800;
+  --color-accent-700: #d69900;
+  --color-accent-800: #a87700;
+  --color-accent-900: #7d5800;
+  --color-accent-950: #4b3500;
+
+  --color-playful: #ff6b6b;
+  --color-playful-50: #fff0f0;
+  --color-playful-100: #ffe0e0;
+  --color-playful-200: #ffc2c2;
+  --color-playful-300: #ffa3a3;
+  --color-playful-400: #ff8585;
+  --color-playful-500: #ff6b6b;
+  --color-playful-600: #ff3d3d;
+  --color-playful-700: #ff0f0f;
+  --color-playful-800: #d60000;
+  --color-playful-900: #a80000;
+  --color-playful-950: #7a0000;
+
+  --color-fun: #4dabff;
+  --color-fun-50: #edf7ff;
+  --color-fun-100: #daeeff;
+  --color-fun-200: #b5ddff;
+  --color-fun-300: #90cbff;
+  --color-fun-400: #6bbaff;
+  --color-fun-500: #4dabff;
+  --color-fun-600: #1e95ff;
+  --color-fun-700: #007df5;
+  --color-fun-800: #0064c7;
+  --color-fun-900: #004f9e;
+  --color-fun-950: #003772;
+
+  --color-neutral: #546e7a;
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #546e7a;
+  --color-neutral-700: #455a64;
+  --color-neutral-800: #37474f;
+  --color-neutral-900: #263238;
+  --color-neutral-950: #1a2326;
+
+  --color-background: #fcfcff;
+  --color-foreground: #3d4a51;
 }
