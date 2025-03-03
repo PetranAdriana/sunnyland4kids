@@ -19,11 +19,36 @@
   },
   "about": {
     "title": "Despre Sunny Land Kids",
+    "subtitle": "Un loc special pentru cei mici",
     "description1": "Sunny Land Kids este un loc de joacă și îngrijire after school, unde creativitatea și cunoașterea prind viață. Oferim un mediu sigur și stimulant pentru copii, combinând educația cu distracția.",
-    "description2": "Misiunea noastră este să creăm o oază de cunoaștere și creativitate, un spațiu în care copiii au vocea auzită și sunt încurajați să își dezvolte talentele."
+    "description2": "Misiunea noastră este să creăm o oază de cunoaștere și creativitate, un spațiu în care copiii au vocea auzită și sunt încurajați să își dezvolte talentele.",
+    "founderName": "Monica-Emilia Toma",
+    "founderTitle": "Fondator & Director",
+    "valuesTitle": "Valorile Noastre",
+    "values": {
+      "creativity": {
+        "title": "Creativitate",
+        "description": "Încurajăm exprimarea liberă și gândirea creativă prin joc și activități artistice."
+      },
+      "safety": {
+        "title": "Siguranță",
+        "description": "Oferim un mediu sigur și protejat, unde copiii se pot dezvolta fără griji."
+      },
+      "learning": {
+        "title": "Învățare",
+        "description": "Promovăm învățarea prin descoperire și adaptăm metodele la nevoile fiecărui copil."
+      },
+      "joy": {
+        "title": "Bucurie",
+        "description": "Credem că bucuria și distracția sunt esențiale pentru o dezvoltare armonioasă."
+      }
+    }
   },
   "services": {
     "title": "Serviciile Noastre",
+    "subtitle": "Descoperă serviciile noastre dedicate dezvoltării și bunăstării copilului tău",
+    "learnMore": "Află mai multe",
+    "contactButton": "Contactează-ne pentru detalii",
     "items": {
       "afterschool": {
         "title": "Before & Afterschool",
@@ -45,30 +70,55 @@
   },
   "activities": {
     "title": "Ateliere Recreative",
+    "subtitle": "Descoperă lumea prin activități distractive și educative adaptate vârstei copilului tău",
+    "readMore": "Citește mai mult",
+    "readLess": "Citește mai puțin",
+    "benefits": "Beneficii",
+    "viewAllButton": "Vezi toate activitățile",
     "items": {
       "painting": {
         "title": "Pictură",
-        "description": "Explorăm culorile și imaginația."
+        "description": "Explorăm culorile și imaginația prin diverse tehnici de pictură, încurajând creativitatea și exprimarea liberă. Copiii vor experimenta cu acuarele, tempera, și alte materiale artistice.",
+        "benefit1": "Dezvoltă motricitatea fină",
+        "benefit2": "Stimulează creativitatea și imaginația",
+        "benefit3": "Îmbunătățește capacitatea de exprimare"
       },
       "reading": {
         "title": "Lectură",
-        "description": "Călătorii în lumea cărților."
+        "description": "Călătorii în lumea cărților prin povești captivante și activități interactive de lectură. Descoperim împreună magia cuvintelor și dezvoltăm dragostea pentru cărți.",
+        "benefit1": "Îmbogățește vocabularul",
+        "benefit2": "Dezvoltă capacitatea de concentrare",
+        "benefit3": "Stimulează imaginația și gândirea critică"
       },
       "theater": {
         "title": "Teatru",
-        "description": "Dezvoltăm expresivitatea prin joc."
+        "description": "Dezvoltăm expresivitatea prin joc de rol, improvizație și mici scenete. Copiii își vor descoperi vocea, vor învăța să colaboreze și să se exprime cu încredere.",
+        "benefit1": "Crește încrederea în sine",
+        "benefit2": "Dezvoltă abilitățile de comunicare",
+        "benefit3": "Încurajează lucrul în echipă"
       },
       "cinema": {
         "title": "Cinema",
-        "description": "Vizionăm și discutăm filme educative."
+        "description": "Vizionăm și discutăm filme educative adaptate vârstei, urmate de activități creative inspirate din poveștile văzute. O modalitate plăcută de a învăța și de a stimula conversația.",
+        "benefit1": "Dezvoltă gândirea critică",
+        "benefit2": "Stimulează discuțiile și dezbaterile",
+        "benefit3": "Oferă modele positive și lecții de viață"
       }
     }
   },
   "gallery": {
-    "title": "Galeria Noastră"
+    "title": "Galeria Noastră",
+    "subtitle": "Privește momentele speciale din viața Sunny Land Kids",
+    "photosTab": "Fotografii",
+    "videosTab": "Videoclipuri",
+    "viewLarger": "Vezi mai mare",
+    "playVideo": "Redă video",
+    "allPhotos": "Toate fotografiile",
+    "allVideos": "Toate videoclipurile"
   },
   "contact": {
     "title": "Contactează-ne",
+    "subtitle": "Suntem aici pentru a răspunde întrebărilor tale. Contactează-ne și îți vom răspunde cât mai curând posibil.",
     "info": {
       "title": "Informații de Contact",
       "address": "Alexandru Ioan Cuza nr. 1, Pipera, România, 077190",
@@ -86,7 +136,15 @@
       "name": "Nume",
       "email": "Email",
       "message": "Mesaj",
-      "submit": "Trimite"
+      "submit": "Trimite",
+      "sending": "Se trimite...",
+      "successTitle": "Mesaj trimis cu succes!",
+      "successMessage": "Îți mulțumim pentru mesaj. Te vom contacta în curând."
+    },
+    "schedule": {
+      "title": "Program de funcționare",
+      "weekdays": "Luni - Vineri",
+      "weekend": "Sâmbătă"
     }
   },
   "footer": {

@@ -1,40 +1,284 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+// Define the activity type options
+type ActivityType = "painting" | "reading" | "theater" | "cinema";
+
+const ActivityIcon = ({ type }: { type: ActivityType | string }) => {
+  const iconMap = {
+    painting: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-12 h-12"
+      >
+        <path d="M21.64 3.64a1.35 1.35 0 0 0-1.94 0L8 15.35l-2.79-2.79a1.35 1.35 0 0 0-1.94 0 1.4 1.4 0 0 0 0 1.94L8 19.21l13.64-13.64a1.35 1.35 0 0 0 0-1.93Z"></path>
+        <path d="m16 7 1 1"></path>
+        <path d="M3.59 13.66 7.05 17.1"></path>
+        <path d="M14.83 5.83 18.28 9.28"></path>
+        <path d="M5.76 11.5 9.2 14.95"></path>
+      </svg>
+    ),
+    reading: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-12 h-12"
+      >
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+    ),
+    theater: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-12 h-12"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+        <path d="M9 9h.01"></path>
+        <path d="M15 9h.01"></path>
+      </svg>
+    ),
+    cinema: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-12 h-12"
+      >
+        <rect width="20" height="20" x="2" y="2" rx="2.18" ry="2.18"></rect>
+        <path d="M7 2v20"></path>
+        <path d="M17 2v20"></path>
+        <path d="M2 12h20"></path>
+        <path d="M2 7h5"></path>
+        <path d="M2 17h5"></path>
+        <path d="M17 17h5"></path>
+        <path d="M17 7h5"></path>
+      </svg>
+    ),
+  };
+
+  return (
+    <div className="text-primary">
+      {iconMap[type as keyof typeof iconMap] || (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-12 h-12"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+      )}
+    </div>
+  );
+};
 
 export default function Activities() {
   const t = useTranslations();
+  const [activeActivity, setActiveActivity] = useState<string | null>(null);
+
   const activitiesData = [
-    { id: "painting" },
-    { id: "reading" },
-    { id: "theater" },
-    { id: "cinema" },
+    {
+      id: "painting",
+      color: "from-primary-100 to-primary-200",
+      borderColor: "border-primary",
+      hoverBg: "hover:bg-primary-50",
+    },
+    {
+      id: "reading",
+      color: "from-secondary-100 to-secondary-200",
+      borderColor: "border-secondary",
+      hoverBg: "hover:bg-secondary-50",
+    },
+    {
+      id: "theater",
+      color: "from-accent-100 to-accent-200",
+      borderColor: "border-accent",
+      hoverBg: "hover:bg-accent-50",
+    },
+    {
+      id: "cinema",
+      color: "from-fun-100 to-fun-200",
+      borderColor: "border-fun",
+      hoverBg: "hover:bg-fun-50",
+    },
   ];
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
 
   return (
     <section id="activities" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        >
           {t("activities.title")}
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {activitiesData.map((activity) => (
-            <Card
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-center text-neutral-600 max-w-2xl mx-auto mb-12"
+        >
+          {t("activities.subtitle")}
+        </motion.p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {activitiesData.map((activity, index) => (
+            <motion.div
               key={activity.id}
-              className="border-none shadow-md bg-gradient-to-br from-white to-neutral-50 hover:shadow-lg transition-shadow"
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              className={`rounded-xl overflow-hidden cursor-pointer ${
+                activeActivity === activity.id ? "ring-4 ring-primary/30" : ""
+              }`}
+              onClick={() =>
+                setActiveActivity(
+                  activity.id === activeActivity ? null : activity.id
+                )
+              }
             >
-              <CardHeader>
-                <CardTitle className="text-xl text-secondary">
+              <div
+                className={`h-full p-6 bg-gradient-to-br ${activity.color} border-2 border-b-4 ${activity.borderColor} rounded-xl flex flex-col items-center text-center transition-all duration-300 ${activity.hoverBg}`}
+              >
+                <div className="mb-4 p-3 bg-white/80 rounded-full">
+                  <ActivityIcon type={activity.id} />
+                </div>
+
+                <h3 className="text-xl font-bold mb-2 text-foreground">
                   {t(`activities.items.${activity.id}.title`)}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-neutral-600">
-                  {t(`activities.items.${activity.id}.description`)}
+                </h3>
+
+                <p className="text-sm text-neutral-600 mb-4 flex-grow">
+                  {t(`activities.items.${activity.id}.description`)
+                    .split(" ")
+                    .slice(0, 10)
+                    .join(" ")}
+                  {t(`activities.items.${activity.id}.description`).split(" ")
+                    .length > 10
+                    ? "..."
+                    : ""}
                 </p>
-              </CardContent>
-            </Card>
+
+                <span className="inline-flex items-center text-sm font-medium text-primary">
+                  {activeActivity === activity.id
+                    ? t("activities.readLess")
+                    : t("activities.readMore")}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                      activeActivity === activity.id ? "rotate-180" : ""
+                    }`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
+
+        {activeActivity && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-2xl p-8 shadow-xl mb-8 border-l-4 border-primary"
+          >
+            <div className="flex items-start">
+              <div className="p-4 bg-primary-50 rounded-full mr-6">
+                <ActivityIcon type={activeActivity} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                  {t(`activities.items.${activeActivity}.title`)}
+                </h3>
+                <p className="text-neutral-600 mb-4">
+                  {t(`activities.items.${activeActivity}.description`)}
+                </p>
+                <div className="bg-primary-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-primary mb-2">
+                    {t("activities.benefits")}
+                  </h4>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>{t(`activities.items.${activeActivity}.benefit1`)}</li>
+                    <li>{t(`activities.items.${activeActivity}.benefit2`)}</li>
+                    <li>{t(`activities.items.${activeActivity}.benefit3`)}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="text-center"
+        >
+          {/* <button className="mt-8 bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl">
+            {t("activities.viewAllButton")}
+          </button> */}
+        </motion.div>
       </div>
     </section>
   );
