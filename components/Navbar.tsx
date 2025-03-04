@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">
           <Image
-            src="/assets/465465117_9084642378236520_2967575499268519160_n.jpg"
+            src="/assets/gallery_images/465465117_9084642378236520_2967575499268519160_n.jpg"
             alt="SunnyLand4Kids Logo"
             className="h-12 w-auto mr-3"
             width={48}

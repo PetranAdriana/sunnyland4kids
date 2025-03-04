@@ -44,27 +44,36 @@
       }
     }
   },
+
   "services": {
     "title": "Our Services",
     "subtitle": "Discover our services dedicated to your child's development and well-being",
     "learnMore": "Learn More",
     "contactButton": "Contact Us for Details",
+    "features": "What We Offer:",
+    "gallery": "Gallery",
+    "contactNow": "Contact Us Now",
+    "closeButton": "Close",
     "items": {
       "afterschool": {
         "title": "Before & Afterschool",
-        "description": "Care and educational activities before and after school."
+        "description": "Care and educational activities before and after school.",
+        "detailedDescription": "Our Before & Afterschool program provides high-quality care and education for children before and after school hours. In a safe and stimulating environment, children receive homework assistance, participate in educational and recreational activities, and enjoy a friendly and inclusive atmosphere."
       },
       "workshops": {
         "title": "Recreational Workshops",
-        "description": "Painting, reading, theater, cinema - for creative development."
+        "description": "Painting, reading, theater, cinema - for creative development.",
+        "detailedDescription": "Our recreational workshops are designed to stimulate creativity and critical thinking through hands-on, interactive activities. From painting and reading to theater and cinema, we offer a variety of educational experiences that inspire and develop children’s creative skills."
       },
       "playground": {
         "title": "Playground",
-        "description": "A safe and fun space for play."
+        "description": "A safe and fun space for play.",
+        "detailedDescription": "Our playground provides a safe and fun environment where children can develop their motor, social, and cognitive skills through play. With modern equipment and attentive supervision, children can enjoy fun and exploration in complete safety."
       },
       "arts": {
         "title": "Arts & Entertainment",
-        "description": "Events that encourage artistic expression."
+        "description": "Events that encourage artistic expression.",
+        "detailedDescription": "Our arts and entertainment programs nurture children’s expressiveness and creative abilities. Through diverse artistic activities, children discover their talents, gain self-confidence, and learn to express themselves in new and engaging ways."
       }
     }
   },
