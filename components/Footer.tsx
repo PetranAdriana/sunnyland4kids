@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
           <Image
-            src="/assets/465465117_9084642378236520_2967575499268519160_n.jpg"
+            src="/assets/gallery_images/465465117_9084642378236520_2967575499268519160_n.jpg"
             alt="SunnyLand4Kids Logo"
             className="h-16 w-auto rounded-full shadow-lg"
             width={200}
