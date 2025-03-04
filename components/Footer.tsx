@@ -1,4 +1,4 @@
-import { Instagram, Globe } from "lucide-react";
+import { Instagram, Globe, Facebook } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -31,6 +31,13 @@ export default function Footer() {
             className="text-neutral-300 hover:text-primary"
           >
             <Globe className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61568347480056"
+            target="_blank"
+            className="text-neutral-300 hover:text-primary"
+          >
+            <Facebook className="w-6 h-6" />
           </a>
         </div>
       </div>
