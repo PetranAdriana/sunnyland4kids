@@ -17,11 +17,49 @@ import { motion } from "framer-motion";
 
 // Gallery media - photos and videos
 const galleryImages = [
-  "/assets/465674827_122105043614611582_4119506859458123450_n.jpg",
-  "/assets/472928199_122117392886611582_8283023779667986590_n.jpg",
-  "/assets/473231126_122117392880611582_1888791232836949518_n.jpg",
-  "/assets/473246221_122117392892611582_4663519613611725507_n.jpg",
-  "/assets/474258806_17859735348343609_4165339850390133993_n.jpg",
+  "/assets/gallery_images/465465117_9084642378236520_2967575499268519160_n.jpg",
+  "/assets/gallery_images/465674827_122105043614611582_4119506859458123450_n.jpg",
+  "/assets/gallery_images/472928199_122117392886611582_8283023779667986590_n.jpg",
+  "/assets/gallery_images/473231126_122117392880611582_1888791232836949518_n.jpg",
+  "/assets/gallery_images/473246221_122117392892611582_4663519613611725507_n.jpg",
+  "/assets/gallery_images/474258806_17859735348343609_4165339850390133993_n.jpg",
+  "/assets/gallery_images/475310721_17860456689343609_5689285685553263614_n.jpg",
+  "/assets/gallery_images/475338232_17860456719343609_164047947656228980_n.jpg",
+  "/assets/gallery_images/475349623_17860456731343609_2626904769015999078_n.jpg",
+  "/assets/gallery_images/475349737_17860456701343609_2585982399493044230_n.jpg",
+  "/assets/gallery_images/475375081_17860827816343609_6171196045621281371_n.jpg",
+  "/assets/gallery_images/475378830_17860456710343609_5917543500389740275_n.jpg",
+  "/assets/gallery_images/476073674_17861723160343609_2408291457065398851_n.jpg",
+  "/assets/gallery_images/476089852_17861794158343609_4171365716574815555_n.jpg",
+  "/assets/gallery_images/476112970_17861794110343609_4073303990865712575_n.jpg",
+  "/assets/gallery_images/476133184_17861794128343609_4465827064279967656_n.jpg",
+  "/assets/gallery_images/476136972_17861794137343609_1449579576863002474_n.jpg",
+  "/assets/gallery_images/476138954_17861794101343609_2104704038251843664_n.jpg",
+  "/assets/gallery_images/476169933_17861723190343609_4446869785137398221_n.jpg",
+  "/assets/gallery_images/476278957_17861794098343609_4192598485548977119_n.jpg",
+  "/assets/gallery_images/476304567_17861723211343609_1446562424709163327_n.jpg",
+  "/assets/gallery_images/476367629_17861723232343609_7502488997888428644_n.jpg",
+  "/assets/gallery_images/476376679_17861794155343609_6071608387528025440_n.jpg",
+  "/assets/gallery_images/476387671_17861723199343609_4910905261990583774_n.jpg",
+  "/assets/gallery_images/476446204_17861723247343609_3990812935646258653_n.jpg",
+  "/assets/gallery_images/476532579_17861723223343609_3592586981180640364_n.jpg",
+  "/assets/gallery_images/476624955_17861794113343609_4561345110442597429_n.jpg",
+  "/assets/gallery_images/476871100_17861794140343609_8028419097164620055_n.jpg",
+  "/assets/gallery_images/477748564_17862756432343609_2862445442508847562_n.jpg",
+  "/assets/gallery_images/478382261_17862756414343609_8415258780020496038_n.jpg",
+  "/assets/gallery_images/479116385_17862756390343609_8923889151915236205_n.jpg",
+  "/assets/gallery_images/479443515_17862756399343609_8134092495979758593_n.jpg",
+  "/assets/gallery_images/479510761_17862756423343609_1975017117153549070_n.jpg",
+  "/assets/gallery_images/479558106_17862756456343609_2979747388371033987_n.jpg",
+  "/assets/gallery_images/479716903_17863111311343609_8670171279034342692_n.jpg",
+  "/assets/gallery_images/479917977_17863111335343609_5898484962393255161_n.jpg",
+  "/assets/gallery_images/479925200_17862756447343609_77964919212995463_n.jpg",
+  "/assets/gallery_images/479928039_17863111320343609_2521376055855715111_n.jpg",
+  "/assets/gallery_images/480236447_17863111284343609_1586240577643283826_n.jpg",
+  "/assets/gallery_images/480285492_17863111350343609_6208507712739644468_n.jpg",
+  "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10..jpeg",
+  "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10.44.jpeg",
+  "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10.50.jpeg",
 ];
 
 const galleryVideos = [
@@ -46,6 +84,9 @@ export default function Gallery() {
   const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const lightboxVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [showAllVideos, setShowAllVideos] = useState(false);
 
   useEffect(() => {
     videoRefs.current = videoRefs.current.slice(0, galleryVideos.length);
@@ -63,7 +104,6 @@ export default function Gallery() {
     );
   }, [photoApi]);
 
-  // Effect for video carousel
   useEffect(() => {
     if (!videoApi) return;
     setVideoCount(videoApi.scrollSnapList().length);
@@ -73,21 +113,35 @@ export default function Gallery() {
     );
   }, [videoApi]);
 
-  // Open lightbox with selected media
   const openLightbox = (media: string) => {
+    // Pause the previously playing video if it exists
+    if (lightboxVideoRef.current) {
+      lightboxVideoRef.current.pause();
+    }
+
     setSelectedMedia(media);
     setIsLightboxOpen(true);
     document.body.style.overflow = "hidden";
+
+    // Play the new video after a slight delay to ensure DOM is updated
+    setTimeout(() => {
+      if (lightboxVideoRef.current && media.endsWith(".mp4")) {
+        lightboxVideoRef.current.play().catch((error) => {
+          console.error("Video playback failed:", error);
+        });
+      }
+    }, 100);
   };
 
-  // Close lightbox
   const closeLightbox = () => {
+    if (lightboxVideoRef.current) {
+      lightboxVideoRef.current.pause();
+    }
     setSelectedMedia(null);
     setIsLightboxOpen(false);
     document.body.style.overflow = "auto";
   };
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -131,7 +185,6 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        {/* Tabs for Photos and Videos */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex bg-neutral-100 rounded-full p-1 shadow-sm">
             <button
@@ -157,7 +210,6 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* Photos Tab Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -212,27 +264,36 @@ export default function Gallery() {
 
           {/* Photos Grid View */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8 text-neutral-800">
+            <h3
+              className="text-2xl font-bold text-center mb-8 text-neutral-800 cursor-pointer hover:text-primary transition-colors flex justify-center items-center"
+              onClick={() => setShowAllPhotos(!showAllPhotos)}
+            >
               {t("gallery.allPhotos") || "Toate fotografiile"}
+              <span className="ml-2 text-md">{showAllPhotos ? "▲" : "▼"}</span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {galleryImages.map((src, index) => (
-                <motion.div
-                  key={`grid-${index}`}
-                  variants={itemVariants}
-                  className="aspect-square relative overflow-hidden rounded-xl shadow-md cursor-pointer group"
-                  onClick={() => openLightbox(src)}
-                >
-                  <Image
-                    src={src}
-                    alt={`Gallery Image ${index + 1}`}
-                    fill
-                    className="object-cover transition-all duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-              ))}
-            </div>
+
+            {showAllPhotos && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {galleryImages.map((src, index) => (
+                  <motion.div
+                    key={`grid-${index}`}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="aspect-square relative overflow-hidden rounded-xl shadow-md cursor-pointer group"
+                    onClick={() => openLightbox(src)}
+                  >
+                    <Image
+                      src={src}
+                      alt={`Gallery Image ${index + 1}`}
+                      fill
+                      className="object-cover transition-all duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
 
@@ -266,21 +327,14 @@ export default function Gallery() {
                             muted
                             loop
                             playsInline
-                            onClick={() => openLightbox(src)}
-                            onMouseEnter={() => {
-                              if (videoRefs.current[index]) {
-                                videoRefs.current[index]?.play();
-                              }
-                            }}
-                            onMouseLeave={() => {
-                              if (videoRefs.current[index]) {
-                                videoRefs.current[index]?.pause();
-                              }
-                            }}
+                            onClick={(e) => e.stopPropagation()}
                             className="w-full h-full object-cover cursor-pointer"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span className="text-white font-medium px-4 py-2 bg-primary/70 rounded-full flex items-center">
+                          <div
+                            className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                            onClick={() => openLightbox(src)}
+                          >
+                            <span className="text-white font-medium px-4 py-2 bg-primary/70 rounded-full flex items-center cursor-pointer">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -314,45 +368,57 @@ export default function Gallery() {
 
           {/* Videos Grid View */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8 text-neutral-800">
+            <h3
+              className="text-2xl font-bold text-center mb-8 text-neutral-800 cursor-pointer hover:text-primary transition-colors flex justify-center items-center"
+              onClick={() => setShowAllVideos(!showAllVideos)}
+            >
               {t("gallery.allVideos") || "Toate videoclipurile"}
+              <span className="ml-2 text-md">{showAllVideos ? "▲" : "▼"}</span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {galleryVideos.map((src, index) => (
-                <motion.div
-                  key={`grid-video-${index}`}
-                  variants={itemVariants}
-                  className="aspect-video relative overflow-hidden rounded-xl shadow-md cursor-pointer group"
-                >
-                  <video
-                    src={src}
-                    muted
-                    loop
-                    playsInline
-                    onClick={() => openLightbox(src)}
-                    onMouseEnter={(e) => e.currentTarget.play()}
-                    onMouseLeave={(e) => e.currentTarget.pause()}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="h-14 w-14 rounded-full bg-primary/80 flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="w-6 h-6 ml-1"
-                      >
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
+
+            {showAllVideos && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {galleryVideos.map((src, index) => (
+                  <motion.div
+                    key={`grid-video-${index}`}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="aspect-video relative overflow-hidden rounded-xl shadow-md cursor-pointer group"
+                  >
+                    <video
+                      src={src}
+                      muted
+                      loop
+                      playsInline
+                      onClick={(e) => e.stopPropagation()}
+                      onMouseEnter={(e) => e.currentTarget.play()}
+                      onMouseLeave={(e) => e.currentTarget.pause()}
+                      className="w-full h-full object-cover"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-neutral-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      onClick={() => openLightbox(src)}
+                    >
+                      <div className="h-14 w-14 rounded-full bg-primary/80 flex items-center justify-center cursor-pointer">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="w-6 h-6 ml-1"
+                        >
+                          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
@@ -363,26 +429,28 @@ export default function Gallery() {
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
           onClick={closeLightbox}
         >
-          <div className="relative max-w-screen-lg max-h-screen h-full w-full flex items-center justify-center p-4">
+          <div className="relative w-full max-w-screen-lg h-auto max-h-[90vh] p-4">
             {selectedMedia.endsWith(".mp4") ||
             selectedMedia.endsWith(".mov") ? (
               <video
+                ref={lightboxVideoRef}
                 src={selectedMedia}
                 controls
                 autoPlay
-                className="max-h-full max-w-full"
+                muted
+                className="max-h-full max-w-full w-full h-auto mx-auto"
                 onClick={(e) => e.stopPropagation()}
               />
             ) : (
-              <div className="relative aspect-auto max-h-full">
-                <Image
-                  src={selectedMedia}
-                  alt="Enlarged media"
-                  fill
-                  className="object-contain"
-                  onClick={(e) => e.stopPropagation()}
-                />
-              </div>
+              <Image
+                src={selectedMedia}
+                alt="Enlarged media"
+                width={1200}
+                height={800}
+                sizes="100vw"
+                className="max-h-full max-w-full w-full h-auto mx-auto object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
             )}
             <button
               className="absolute top-4 right-4 text-white hover:text-primary bg-black/50 rounded-full p-2"

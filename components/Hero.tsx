@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 export default function Hero() {
   const t = useTranslations();
   return (
-    <header id="home" className="relative h-[75vh] overflow-hidden pt-16">
+    <header id="home" className="relative h-[50vh] overflow-hidden pt-16">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay

@@ -132,7 +132,7 @@ export default function About() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border-4 border-white shadow-xl">
                 <img
-                  src="/assets/476138954_17861794101343609_2104704038251843664_n.jpg"
+                  src="/assets/gallery_images/465465117_9084642378236520_2967575499268519160_n.jpg"
                   alt="Happy children playing"
                   className="w-full h-auto object-cover"
                   onError={(e) => {
@@ -144,7 +144,7 @@ export default function About() {
 
               <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-xl overflow-hidden border-4 border-white shadow-lg">
                 <img
-                  src="/assets/477748564_17862756432343609_2862445442508847562_n.jpg"
+                  src="/assets/gallery_images/465674827_122105043614611582_4119506859458123450_n.jpg"
                   alt="Learning activities"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -213,7 +213,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-bold text-center mb-12 text-neutral-800">
+          <h3 className="text-4xl md:text-5xl  font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {t("about.valuesTitle") || "Valorile Noastre"}
           </h3>
 

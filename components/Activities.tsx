@@ -7,7 +7,13 @@ import { motion } from "framer-motion";
 // Define the activity type options
 type ActivityType = "painting" | "reading" | "theater" | "cinema";
 
-const ActivityIcon = ({ type }: { type: ActivityType | string }) => {
+const ActivityIcon = ({
+  type,
+  color,
+}: {
+  type: ActivityType | string;
+  color: string;
+}) => {
   const iconMap = {
     painting: (
       <svg
@@ -83,7 +89,7 @@ const ActivityIcon = ({ type }: { type: ActivityType | string }) => {
   };
 
   return (
-    <div className="text-primary">
+    <div className={`text-${color}`}>
       {iconMap[type as keyof typeof iconMap] || (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -112,24 +118,28 @@ export default function Activities() {
     {
       id: "painting",
       color: "from-primary-100 to-primary-200",
+      baseColor: "primary",
       borderColor: "border-primary",
       hoverBg: "hover:bg-primary-50",
     },
     {
       id: "reading",
       color: "from-secondary-100 to-secondary-200",
+      baseColor: "secondary",
       borderColor: "border-secondary",
       hoverBg: "hover:bg-secondary-50",
     },
     {
       id: "theater",
       color: "from-accent-100 to-accent-200",
+      baseColor: "accent",
       borderColor: "border-accent",
       hoverBg: "hover:bg-accent-50",
     },
     {
       id: "cinema",
       color: "from-fun-100 to-fun-200",
+      baseColor: "fun",
       borderColor: "border-fun",
       hoverBg: "hover:bg-fun-50",
     },
@@ -155,7 +165,7 @@ export default function Activities() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
         >
           {t("activities.title")}
         </motion.h2>
@@ -192,7 +202,7 @@ export default function Activities() {
                 className={`h-full p-6 bg-gradient-to-br ${activity.color} border-2 border-b-4 ${activity.borderColor} rounded-xl flex flex-col items-center text-center transition-all duration-300 ${activity.hoverBg}`}
               >
                 <div className="mb-4 p-3 bg-white/80 rounded-full">
-                  <ActivityIcon type={activity.id} />
+                  <ActivityIcon type={activity.id} color={activity.baseColor} />
                 </div>
 
                 <h3 className="text-xl font-bold mb-2 text-foreground">
@@ -244,7 +254,13 @@ export default function Activities() {
           >
             <div className="flex items-start">
               <div className="p-4 bg-primary-50 rounded-full mr-6">
-                <ActivityIcon type={activeActivity} />
+                <ActivityIcon
+                  type={activeActivity}
+                  color={
+                    activitiesData.find((a) => a.id === activeActivity)
+                      ?.baseColor || "primary"
+                  }
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">

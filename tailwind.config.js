@@ -38,4 +38,14 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    "bg-primary-500",
+    "bg-secondary-500",
+    "bg-accent-500",
+    "bg-fun-500",
+    "hover:bg-primary-600",
+    "hover:bg-secondary-600",
+    "hover:bg-accent-600",
+    "hover:bg-fun-600",
+  ],
 };

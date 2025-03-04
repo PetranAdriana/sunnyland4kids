@@ -49,22 +49,30 @@
     "subtitle": "Descoperă serviciile noastre dedicate dezvoltării și bunăstării copilului tău",
     "learnMore": "Află mai multe",
     "contactButton": "Contactează-ne pentru detalii",
+    "features": "Ce oferim:",
+    "gallery": "Galerie",
+    "contactNow": "Contactează-ne acum",
+    "closeButton": "Închide",
     "items": {
       "afterschool": {
         "title": "Before & Afterschool",
-        "description": "Îngrijire și activități educative înainte și după școală."
+        "description": "Îngrijire și activități educative înainte și după școală.",
+        "detailedDescription": "Programul nostru Before & Afterschool oferă îngrijire și educație de calitate pentru copii înainte și după orele de școală. Într-un mediu sigur și stimulant, copiii primesc asistență la teme, participă la activități educative și recreative, și se bucură de o atmosferă prietenoasă și incluzivă."
       },
       "workshops": {
         "title": "Ateliere Recreative",
-        "description": "Pictură, lectură, teatru, cinema - pentru dezvoltarea creativă."
+        "description": "Pictură, lectură, teatru, cinema - pentru dezvoltarea creativă.",
+        "detailedDescription": "Atelierele noastre recreative sunt concepute pentru a stimula creativitatea și gândirea critică prin activități practice și interactive. De la pictură și lectură la teatru și cinema, oferim o varietate de experiențe educaționale care inspiră și dezvoltă abilitățile creative ale copiilor."
       },
       "playground": {
         "title": "Playground",
-        "description": "Un spațiu sigur și distractiv pentru joacă."
+        "description": "Un spațiu sigur și distractiv pentru joacă.",
+        "detailedDescription": "Spațiul nostru de joacă oferă un mediu sigur și distractiv unde copiii își pot dezvolta abilitățile motorii, sociale și cognitive prin joc. Cu echipamente moderne și supraveghere atentă, copiii se pot bucura de distracție și explorare în deplină siguranță."
       },
       "arts": {
         "title": "Arts & Entertainment",
-        "description": "Evenimente care încurajează expresia artistică."
+        "description": "Evenimente care încurajează expresia artistică.",
+        "detailedDescription": "Programele noastre de artă și divertisment cultivă expresivitatea și abilitățile creative ale copiilor. Prin activități artistice diverse, copiii își descoperă talentele, câștigă încredere în sine și învață să se exprime în moduri noi și captivante."
       }
     }
   },

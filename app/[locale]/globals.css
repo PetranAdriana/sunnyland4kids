@@ -82,3 +82,60 @@
   --color-background: #fcfcff;
   --color-foreground: #3d4a51;
 }
+
+.ring-primary\/30 {
+  --tw-ring-color: rgb(138 79 255 / 0.3);
+}
+.ring-secondary\/30 {
+  --tw-ring-color: rgb(54 211 153 / 0.3);
+}
+.ring-accent\/30 {
+  --tw-ring-color: rgb(255 213 62 / 0.3);
+}
+.ring-playful\/30 {
+  --tw-ring-color: rgb(255 107 107 / 0.3);
+}
+.ring-fun\/30 {
+  --tw-ring-color: rgb(77 171 255 / 0.3);
+}
+.ring-neutral\/30 {
+  --tw-ring-color: rgb(84 110 122 / 0.3);
+}
+
+.border-primary\/30 {
+  border-color: rgb(138 79 255 / 0.3);
+}
+.border-secondary\/30 {
+  border-color: rgb(54 211 153 / 0.3);
+}
+.border-accent\/30 {
+  border-color: rgb(255 213 62 / 0.3);
+}
+.border-playful\/30 {
+  border-color: rgb(255 107 107 / 0.3);
+}
+.border-fun\/30 {
+  border-color: rgb(77 171 255 / 0.3);
+}
+.border-neutral\/30 {
+  border-color: rgb(84 110 122 / 0.3);
+}
+
+.text-primary\/30 {
+  color: rgb(138 79 255 / 0.3);
+}
+.text-secondary\/30 {
+  color: rgb(54 211 153 / 0.3);
+}
+.text-accent\/30 {
+  color: rgb(255 213 62 / 0.3);
+}
+.text-playful\/30 {
+  color: rgb(255 107 107 / 0.3);
+}
+.text-fun\/30 {
+  color: rgb(77 171 255 / 0.3);
+}
+.text-neutral\/30 {
+  color: rgb(84 110 122 / 0.3);
+}

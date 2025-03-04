@@ -393,7 +393,7 @@ export default function Contact() {
         >
           <div className="bg-white p-4 rounded-2xl shadow-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4539.139657367967!2d26.12998681282732!3d44.4995297971615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2029fc06d95ef%3A0x86929428277f7cda!2sStrada%20Alexandru%20Ioan%20Cuza%201%2C%20Voluntari%20077190!5e1!3m2!1sen!2sro!4v1741015791286!5m2!1sen!2sro"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.762845408609!2d26.129986812995043!3d44.49952597095382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b2029fc06d95ef%3A0x86929428277f7cda!2sStrada%20Alexandru%20Ioan%20Cuza%201%2C%20Voluntari%20077190!5e0!3m2!1sen!2sro!4v1741091982292!5m2!1sen!2sro"
               width="100%"
               height="400"
               style={{ border: 0 }}
