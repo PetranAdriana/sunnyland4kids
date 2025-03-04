@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Footer() {
   const t = useTranslations();
   return (
-    <footer className="bg-neutral-800 text-white py-12">
+    <footer className="bg-neutral-800 text-white py-12 z-20 relative">
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
           <Image

@@ -166,8 +166,12 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="py-24 bg-gradient-to-b from-background to-neutral-50"
+      className="py-24 bg-gradient-to-b from-background to-neutral-50 relative overflow-hidden"
     >
+      <div className="absolute top-0 left-0 w-40 h-40 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/5 rounded-full translate-x-1/3 translate-y-1/3 z-10"></div>
+      <div className="absolute top-1/4 right-10 w-20 h-20 bg-accent/5 rounded-full"></div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
