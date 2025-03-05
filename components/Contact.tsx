@@ -8,11 +8,13 @@ import { MapPin, Phone, Mail, Globe, Send, CheckCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { sendEmail } from "@/app/actions/sendEmail"; // Import the server action
 
 export default function Contact() {
   const t = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null); // Add error state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,38 +31,22 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null); // Clear previous errors
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const formData = new FormData(e.currentTarget);
+    const result = await sendEmail(formData);
+
+    setIsSubmitting(false);
+
+    if (result.success) {
       setIsSubmitted(true);
-      // Reset form after showing success message
       setTimeout(() => {
         setFormData({ name: "", email: "", message: "" });
         setIsSubmitted(false);
       }, 5000);
-    }, 1500);
-
-    // Actual form submission would go here
-    // try {
-    //   const response = await fetch("https://formspree.io/f/your-form-id", {
-    //     method: "POST",
-    //     body: JSON.stringify(formData),
-    //     headers: { "Content-Type": "application/json" }
-    //   });
-    //   if (response.ok) {
-    //     setIsSubmitting(false);
-    //     setIsSubmitted(true);
-    //     setFormData({ name: "", email: "", message: "" });
-    //     setTimeout(() => setIsSubmitted(false), 5000);
-    //   } else {
-    //     setIsSubmitting(false);
-    //     // Handle error
-    //   }
-    // } catch (error) {
-    //   setIsSubmitting(false);
-    //   // Handle error
-    // }
+    } else {
+      setError(result.error || "An error occurred while sending the message.");
+    }
   };
 
   // Animation variants
@@ -320,6 +306,9 @@ export default function Contact() {
                     required
                   />
                 </div>
+
+                {/* Display error message if present */}
+                {error && <p className="text-red-500 text-sm">{error}</p>}
 
                 <Button
                   type="submit"
