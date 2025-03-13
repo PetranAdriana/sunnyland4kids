@@ -26,11 +26,15 @@ const ActivityIcon = ({
         strokeLinejoin="round"
         className="w-12 h-12"
       >
-        <path d="M21.64 3.64a1.35 1.35 0 0 0-1.94 0L8 15.35l-2.79-2.79a1.35 1.35 0 0 0-1.94 0 1.4 1.4 0 0 0 0 1.94L8 19.21l13.64-13.64a1.35 1.35 0 0 0 0-1.93Z"></path>
-        <path d="m16 7 1 1"></path>
-        <path d="M3.59 13.66 7.05 17.1"></path>
-        <path d="M14.83 5.83 18.28 9.28"></path>
-        <path d="M5.76 11.5 9.2 14.95"></path>
+        <circle cx="12" cy="12" r="9"></circle>
+
+        <circle cx="8" cy="8" r="2"></circle>
+        <circle cx="16" cy="8" r="2"></circle>
+        <circle cx="16" cy="16" r="2"></circle>
+        <circle cx="8" cy="16" r="2"></circle>
+
+        <path d="M19.5 4.5L15 9"></path>
+        <path d="M22 2l-1.5 1.5"></path>
       </svg>
     ),
     reading: (
@@ -59,10 +63,18 @@ const ActivityIcon = ({
         strokeLinejoin="round"
         className="w-12 h-12"
       >
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-        <path d="M9 9h.01"></path>
-        <path d="M15 9h.01"></path>
+        <path d="M4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4"></path>
+        <path d="M4 4c0-1.5 1.1-3 4-3 3 0 3 1 5 1 2 0 2-1 5-1 2.9 0 4 1.5 4 3"></path>
+
+        <circle cx="9" cy="12" r="3"></circle>
+        <circle cx="15" cy="12" r="3"></circle>
+
+        <path d="M8 10v1"></path>
+        <path d="M10 10v1"></path>
+        <path d="M7.5 14a3.5 3.5 0 0 0 3 0"></path>
+        <path d="M14 10v1"></path>
+        <path d="M16 10v1"></path>
+        <path d="M16.5 14a3.5 3.5 0 0 1-3 0"></path>
       </svg>
     ),
     cinema: (

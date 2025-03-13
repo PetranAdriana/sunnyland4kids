@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   const t = useTranslations();
@@ -49,8 +50,12 @@ export default function About() {
           strokeLinejoin="round"
           className="w-8 h-8"
         >
-          <path d="M14.5 3.5c0 3.59-2 8.5-7 8.5s-7-4.91-7-8.5a7 7 0 0 1 14 0Z"></path>
-          <path d="M21 3.5A11 11 0 0 0 11 11c1.87 1.93 5 2 7 .5l3 3"></path>
+          {/* Shield with child silhouette */}
+          <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"></path>
+          {/* Simple child figure inside shield */}
+          <path d="M12 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"></path>
+          <path d="M12 12v3"></path>
+          <path d="M10 15h4"></path>
         </svg>
       ),
       color: "text-secondary",
@@ -118,6 +123,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent inline-block">
             {t("about.title")}
           </h2>
+
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
         </motion.div>
 
@@ -131,30 +137,29 @@ export default function About() {
           >
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border-4 border-white shadow-xl">
-                <img
+                <Image
                   src="/assets/gallery_images/465465117_9084642378236520_2967575499268519160_n.jpg"
                   alt="Happy children playing"
+                  width={600}
+                  height={400}
                   className="w-full h-auto object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/600x400?text=Happy+Children+Playing";
-                  }}
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTJlOGYwIi8+PC9zdmc+"
                 />
               </div>
 
               <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-xl overflow-hidden border-4 border-white shadow-lg">
-                <img
+                <Image
                   src="/assets/gallery_images/465674827_122105043614611582_4119506859458123450_n.jpg"
                   alt="Learning activities"
+                  width={200}
+                  height={200}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/200x200?text=Learning+Activities";
-                  }}
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTJlOGYwIi8+PC9zdmc+"
                 />
               </div>
 
-              {/* Decorative elements */}
               <div className="absolute -top-5 -left-5 w-20 h-20 bg-accent rounded-full opacity-20"></div>
               <div className="absolute -top-5 -right-5 w-16 h-16 bg-primary rounded-full opacity-10"></div>
             </div>
@@ -183,14 +188,14 @@ export default function About() {
               </div>
 
               <div className="mt-8 flex items-center">
-                <img
+                <Image
                   src="/assets/466000442_10230381366450785_6598734449168249828_n.jpg"
                   alt="Founder"
+                  width={56}
+                  height={56}
                   className="w-14 h-14 rounded-full object-cover border-2 border-primary mr-4"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/56x56?text=F";
-                  }}
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2UyZThmMCIvPjwvc3ZnPg=="
                 />
                 <div>
                   <p className="font-bold text-neutral-800">
@@ -205,17 +210,25 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Values section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20"
+          className="md:mt-32 py-20"
         >
           <h3 className="text-4xl md:text-5xl  font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             {t("about.valuesTitle") || "Valorile Noastre"}
           </h3>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-center text-neutral-600 max-w-2xl mx-auto mb-12"
+          >
+            {t("about.valuesSubtitle")}
+          </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
