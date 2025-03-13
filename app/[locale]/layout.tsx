@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SunnyLand4Kids",
+  title: "Sunny Land Kids",
   description: "Before & Afterschool pentru copii",
 };
 
