@@ -60,6 +60,10 @@ const galleryImages = [
   "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10..jpeg",
   "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10.44.jpeg",
   "/assets/gallery_images/WhatsApp Image 2025-03-03 at 15.10.50.jpeg",
+  "/assets/gallery_images/483835736_17866210662343609_9131514109998053256_n.jpg",
+  "/assets/gallery_images/483555092_17866210695343609_3961850938934148629_n.jpg",
+  "/assets/gallery_images/483692366_17866210764343609_5033197705257768692_n.jpg",
+  "/assets/gallery_images/483922207_17866210755343609_1249223678029186472_n.jpg"
 ];
 
 const galleryVideos = [
