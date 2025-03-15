@@ -5,7 +5,7 @@ import { GlobeIcon } from "@radix-ui/react-icons";
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
-  const newLocale = locale === "en" ? "ro" : "en";
+  const newLocale = locale === "ro" ? "en" : "ro";
 
   return (
     <Button
