@@ -40,6 +40,7 @@ export default function Footer() {
             <Facebook className="w-6 h-6" />
           </a>
         </div>
+        <p className="mt-6 text-neutral-400 text-sm">Powered by <a href="https://frontforgeweb.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">FrontForge Solutions SRL</a></p>
       </div>
     </footer>
   );
